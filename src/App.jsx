@@ -5,6 +5,9 @@ import Home from "./pages/Home";
 import Wishlist from "./pages/Wishlist";
 import Cart from "./pages/Cart";
 import PageNotFound from "./pages/PageNotFound";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Sell from "./pages/Sell";
 
 const App = () => {
   return (
@@ -12,8 +15,11 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home/>} />
-        <Route path="/Wishlist" element={<Wishlist/>} />
-        <Route path="/Cart" element={<Cart/>} />
+        <Route path="/wishlist" element={<Wishlist/>} />
+        <Route path="/cart" element={<Cart/>} />
+        <Route path="/sell" element={<Sell/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
         <Route path="/*" element={<PageNotFound/>} />
       </Routes>
     </BrowserRouter>

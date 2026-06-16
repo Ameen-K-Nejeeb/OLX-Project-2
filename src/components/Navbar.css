@@ -11,6 +11,8 @@
 .section-1 {
     display: flex;
     gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 .brand-mark {
     background: yellow;
@@ -22,6 +24,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 4px solid #2fd0bd;
+    box-shadow: 0 0 8px #2fd0bd;
 }
 .section-2 {
     display: flex;

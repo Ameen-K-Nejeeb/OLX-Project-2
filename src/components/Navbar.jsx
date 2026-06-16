@@ -21,14 +21,14 @@ const Navbar = () => {
             <Link to="/cart">Cart ()</Link>
           </li>
           <li>
-            <Link style={{backgroundColor:"yellow",color:'black'}} to="/cart">Sell </Link>
+            <Link style={{backgroundColor:"yellow",color:'black'}} to="/sell">Sell </Link>
           </li>
         </ul>
       </div>
       <div className="section-3">
         <ul className="auth-links">
           <li>
-            <Link to="/login" className="login-btn">
+            <Link to="/login" className="login-btn" >
               Login
             </Link>
           </li>
