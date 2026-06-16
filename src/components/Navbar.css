@@ -1,0 +1,112 @@
+.background {
+    background-color: #16211F;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.banner-name {
+    color: white;
+}
+.section-1 {
+    display: flex;
+    gap: 10px;
+}
+.brand-mark {
+    background: yellow;
+    color: black;
+    border-radius: 57%;
+    font-size: xx-large;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-2 {
+    display: flex;
+}
+
+
+/* ------------------------------------------- */
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    height: 40px;
+    padding: 0 18px;
+    text-decoration: none;
+    color: #f2f7f6;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+    background-color: #1f302d;
+    color: #2fd0bd;
+}
+
+.nav-links li a.active {
+    background-color: #2fd0bd;
+    color: #101716;
+}
+/* ------------------------------------------------ */
+.auth-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 40px;
+    color: #f2f7f6;
+    text-decoration: none;
+    border: 1px solid #2fd0bd;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #2fd0bd;
+    color: #101716;
+}
+
+.register-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 40px;
+    background: #2fd0bd;
+    color: #101716;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.register-btn:hover {
+    background: #88eee2;
+    transform: translateY(-2px);
+}
+/* ----------------------------------------------- */
