@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -8,8 +8,34 @@ import PageNotFound from "./pages/PageNotFound";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Sell from "./pages/Sell";
+import { useDispatch } from "react-redux";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./config/firebase";
+import firebase from "firebase/compat/app";
+import { clearUser, setUser } from "./slices/authSlice";
 
 const App = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      if(firebaseUser){
+        dispatch(setUser({
+          uid : firebaseUser.uid, 
+          email : firebaseUser.email, 
+          displayName : firebase.displayname
+        })
+      )
+      } else {
+        dispatch(clearUser());
+      }
+    })
+
+    return () => unsubscribe()
+  }, [dispatch])
+
+
   return (
     <BrowserRouter>
       <Navbar />
