@@ -13,6 +13,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./config/firebase";
 import firebase from "firebase/compat/app";
 import { clearUser, setUser } from "./slices/authSlice";
+import ProductView from "./pages/ProductView";
 
 const App = () => {
 
@@ -47,6 +48,8 @@ const App = () => {
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/*" element={<PageNotFound/>} />
+        <Route path="/productview/:id" element={<ProductView/>} />
+        <Route path="/edit-product/:id" element={<Sell />}/>
       </Routes>
     </BrowserRouter>
   );

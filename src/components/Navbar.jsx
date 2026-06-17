@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearUser } from "../slices/authSlice";
 import { auth } from "../config/firebase";
 import { signOut } from "firebase/auth";
+import { clearCart } from "../slices/cartSlice";
 
 const Navbar = () => {
 
@@ -12,14 +13,16 @@ const Navbar = () => {
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    console.log('user : ', user, isAuthenticated, ' loading : ',loading);
-
+    const cartCount = useSelector((state) => state.cart.items )
+    console.log(cartCount)
 
     if (loading) {
     return <nav style={{ padding: '15px', background: '#f4f4f4' }}>Checking session...</nav>;
   }
 
     const handleLogout = async () => {
+        dispatch(clearCart());
+
         try{
             await signOut(auth);
             navigate('/login')
@@ -47,7 +50,7 @@ const Navbar = () => {
           </li>)}
           
           {isAuthenticated ? (<li>
-            <Link to="/cart">Cart ()</Link>
+            <Link to="/cart">Cart ({cartCount.length})</Link>
           </li>) : (<li>
             <Link to="/login">Cart ()</Link>
           </li>)}
