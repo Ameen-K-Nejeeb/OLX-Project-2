@@ -1,16 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../slices/productSlice";
 import { useNavigate } from "react-router";
 
 const Home = () => {
   const dispatch = useDispatch();
+  const [search, setSearch] = useState('')
 
   const navigate = useNavigate()
 
   const { items, loading, error } = useSelector(
     (state) => state.products
   );
+
+  console.log(items);
+  
+  const filteredItems = items.filter((product) => 
+    product.title?.toLowerCase().includes(search.toLowerCase()) ||
+    product.category?.toLowerCase().includes(search.toLowerCase()) ||
+    product.location?.toLowerCase().includes(search.toLowerCase())
+  )
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -41,16 +50,18 @@ const Home = () => {
         <div className="search-box">
           <input
             type="text"
+            value={search}
             placeholder="Search title, category, or location..."
+            onChange={(e) => setSearch(e.target.value)}
             className="search-input"
           />
-          <button className="search-btn">
+          {/* <button className="search-btn">
             Search
-          </button>
+          </button> */}
         </div>
       </div>
 
-      {items.length === 0 ? (
+      {filteredItems.length === 0 ? (
         <div
           style={{
             display: "flex",
@@ -66,7 +77,7 @@ const Home = () => {
         </div>
       ) : (
         <div className="product-grid">
-          {items.map((product) => (
+          {filteredItems.map((product) => (
             <div
               key={product.id}
               className="product-card"
